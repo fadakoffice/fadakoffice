@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دفتر خدمات کامپیوتری فدک در زاهدشهر - ارائه خدمات اینترنتی، بیمه، دانشگاه، مدرسه و تعویض پلاک">
+<meta name="theme-color" content="#0b1f3a">
+<title>دفتر خدمات کامپیوتری فدک</title>
+<style>
+:root{
+  --navy:#0b1f3a;--blue:#1677ff;--light:#f4f8ff;--text:#152238;
+  --muted:#64748b;--white:#fff;--line:#e2e8f0;--shadow:0 12px 35px rgba(11,31,58,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Tahoma,"Segoe UI",Arial,sans-serif;background:var(--light);color:var(--text);line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800}
+.logo-mark{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#1677ff,#0b1f3a);color:white;display:grid;place-items:center;font-size:25px}
+.logo small{display:block;color:var(--muted);font-weight:500;font-size:12px}
+.navlinks{display:flex;gap:20px;color:#334155;font-size:14px}
+.navlinks a:hover{color:var(--blue)}
+.hero{background:linear-gradient(135deg,#eef6ff,#fff);padding:70px 20px 55px}
+.container{max-width:1100px;margin:auto}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:35px;align-items:center}
+.badge{display:inline-block;background:#e4f0ff;color:#1765c0;border-radius:30px;padding:7px 16px;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(34px,5vw,60px);line-height:1.35;margin-bottom:18px}
+.hero p{font-size:18px;color:var(--muted);max-width:680px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 23px;border-radius:16px;font-weight:700;border:1px solid var(--line)}
+.btn-primary{background:var(--blue);color:white;border-color:var(--blue);box-shadow:0 8px 22px rgba(22,119,255,.25)}
+.btn-secondary{background:white}
+.hero-card{background:var(--navy);color:white;border-radius:28px;padding:30px;box-shadow:var(--shadow)}
+.hero-card .icon{font-size:70px}
+.hero-card h2{font-size:25px;margin:8px 0}
+.hero-card p{color:#d7e4f6;font-size:15px}
+section{padding:65px 20px}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:32px;margin-bottom:8px}
+.section-title p{color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service{background:white;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 25px rgba(15,23,42,.05);transition:.2s}
+.service:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.service .sicon{font-size:32px}
+.service h3{margin:8px 0 4px;font-size:19px}
+.service p{color:var(--muted);font-size:14px}
+.info{background:white}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info-card{border:1px solid var(--line);border-radius:22px;padding:23px}
+.info-card strong{display:block;margin-bottom:7px;font-size:18px}
+.info-card span{color:var(--muted)}
+.contact{background:linear-gradient(135deg,#0b1f3a,#123e73);color:white}
+.contact-box{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center}
+.contact p{color:#d7e4f6}
+.contact .btn{background:white;color:var(--navy);border-color:white}
+footer{background:#07172b;color:#cbd5e1;padding:25px 20px;text-align:center;font-size:13px}
+@media(max-width:800px){
+ .hero-grid{grid-template-columns:1fr}
+ .services{grid-template-columns:1fr 1fr}
+ .info-grid{grid-template-columns:1fr}
+ .navlinks{display:none}
+ .contact-box{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .services{grid-template-columns:1fr}
+ .hero{padding-top:45px}
+ section{padding:50px 16px}
+ .nav{padding:10px 14px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#home">
+      <span class="logo-mark">ف</span>
+      <span>دفتر خدمات کامپیوتری فدک<small>خدمات اینترنتی، اداری و آموزشی</small></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#services">خدمات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">ارائه خدمات با سرعت و دقت</span>
+      <h1>دفتر خدمات کامپیوتری فدک</h1>
+      <p>انجام خدمات اینترنتی، بیمه، دانشگاه، مدرسه و تعویض پلاک با پشتیبانی مناسب.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="tel:09176784627">📞 تماس مستقیم</a>
+        <a class="btn btn-secondary" href="https://wa.me/989176784627" target="_blank" rel="noopener">💬 واتساپ</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="icon">💻</div>
+      <h2>خدمات کامپیوتری فدک</h2>
+      <p>برای انجام امور اینترنتی و اداری، با ما در تماس باشید.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>خدمات ما</h2>
+      <p>خدمات مورد نیاز شما در یک مجموعه</p>
+    </div>
+    <div class="services">
+      <article class="service"><div class="sicon">🌐</div><h3>ثبت‌نام‌های اینترنتی</h3><p>انجام ثبت‌نام و امور اینترنتی مورد نیاز شما.</p></article>
+      <article class="service"><div class="sicon">🛡️</div><h3>خدمات بیمه</h3><p>ارائه خدمات و پیگیری امور مرتبط با بیمه.</p></article>
+      <article class="service"><div class="sicon">🎓</div><h3>خدمات دانشگاه و مقالات</h3><p>خدمات اینترنتی دانشگاهی و امور مربوط به مقالات.</p></article>
+      <article class="service"><div class="sicon">🏫</div><h3>خدمات مدرسه</h3><p>انجام امور و ثبت‌نام‌های اینترنتی مدرسه.</p></article>
+      <article class="service"><div class="sicon">🚗</div><h3>خدمات تعویض پلاک</h3><p>انجام امور اینترنتی مرتبط با تعویض پلاک.</p></article>
+      <article class="service"><div class="sicon">💻</div><h3>سایر خدمات کامپیوتری</h3><p>برای سایر خدمات و امور اینترنتی با دفتر تماس بگیرید.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>اطلاعات دفتر</h2>
+      <p>راه‌های ارتباطی و اطلاعات مجموعه</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><strong>📍 آدرس</strong><span>زاهدشهر، روبروی دفتر اسناد رسمی صادقی</span></div>
+      <div class="info-card"><strong>📞 شماره تماس</strong><span><a href="tel:09176784627">09176784627</a></span></div>
+      <div class="info-card"><strong>🕐 ساعات کاری</strong><span>۲۴ ساعته</span></div>
+      <div class="info-card"><strong>👨‍💼 مدیرمسئول</strong><span>محمدباقر آزادیان</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-box">
+    <div>
+      <h2>نیاز به خدمات دارید؟</h2>
+      <p>برای دریافت اطلاعات یا انجام خدمات، با دفتر خدمات کامپیوتری فدک تماس بگیرید.</p>
+    </div>
+    <div class="buttons">
+      <a class="btn" href="tel:09176784627">📞 تماس با دفتر</a>
+      <a class="btn" href="https://wa.me/989176784627" target="_blank" rel="noopener">💬 پیام در واتساپ</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  © ۱۴۰۵ دفتر خدمات کامپیوتری فدک — مدیرمسئول: محمدباقر آزادیان
+</footer>
+
+</body>
+</html>
