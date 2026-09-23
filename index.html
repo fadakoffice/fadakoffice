@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دفتر خدمات کامپیوتری فدک؛ انجام خدمات اینترنتی، اداری و آموزشی با سرعت و دقت.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>دفتر خدمات کامپیوتری فدک</title>
+  <style>
+    :root{
+      --navy:#0b1f3a; --blue:#1677ff; --blue2:#0d5bd7;
+      --text:#152238; --muted:#64748b; --bg:#f7faff; --white:#fff;
+      --line:#e4ebf5; --shadow:0 18px 50px rgba(11,31,58,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Tahoma,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+    .logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;display:grid;place-items:center;font-size:21px;box-shadow:0 8px 22px rgba(22,119,255,.25)}
+    .brand small{display:block;color:var(--muted);font-size:11px;font-weight:500}
+    nav{display:flex;gap:26px;color:#334155;font-size:14px;font-weight:700}
+    nav a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:13px;background:var(--blue);color:#fff;font-weight:800;font-size:14px;box-shadow:0 10px 25px rgba(22,119,255,.23);transition:.2s}
+    .btn:hover{transform:translateY(-2px);background:var(--blue2)}
+    .btn.outline{background:#fff;color:var(--navy);border:1px solid var(--line);box-shadow:none}
+    .hero{padding:90px 0 80px;background:radial-gradient(circle at 15% 20%,rgba(22,119,255,.12),transparent 30%),linear-gradient(180deg,#fff,var(--bg))}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
+    .badge{display:inline-flex;padding:7px 13px;border-radius:99px;background:#eaf3ff;color:var(--blue2);font-size:12px;font-weight:800;margin-bottom:18px}
+    h1{font-size:clamp(34px,5vw,58px);line-height:1.35;color:var(--navy);margin-bottom:18px}
+    .hero p{font-size:18px;color:var(--muted);max-width:650px;margin-bottom:28px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .phone{margin-top:22px;font-weight:800;color:var(--navy)}
+    .phone span{color:var(--blue);direction:ltr;display:inline-block}
+    .hero-card{background:linear-gradient(145deg,var(--navy),#123d70);color:#fff;padding:34px;border-radius:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero-card:after{content:"";position:absolute;width:180px;height:180px;border:35px solid rgba(255,255,255,.06);border-radius:50%;left:-55px;bottom:-70px}
+    .hero-card .big-icon{font-size:65px;margin-bottom:12px}
+    .hero-card h2{font-size:25px;margin-bottom:8px}
+    .hero-card p{color:#d9e7f8;font-size:14px}
+    section{padding:78px 0}
+    .section-head{text-align:center;max-width:680px;margin:0 auto 40px}
+    .section-head h2{font-size:32px;color:var(--navy);margin-bottom:8px}
+    .section-head p{color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px 18px;box-shadow:0 8px 28px rgba(11,31,58,.045);transition:.25s}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#cfe0f8}
+    .icon{width:54px;height:54px;border-radius:16px;background:#edf5ff;display:grid;place-items:center;font-size:27px;margin-bottom:17px}
+    .card h3{font-size:16px;color:var(--navy);margin-bottom:7px}
+    .card p{font-size:12px;color:var(--muted)}
+    .about-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:stretch}
+    .about-box,.manager{background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:0 10px 35px rgba(11,31,58,.05)}
+    .about-box h2{font-size:29px;color:var(--navy);margin-bottom:15px}
+    .about-box p{color:var(--muted)}
+    .manager{display:flex;align-items:center;gap:22px;background:linear-gradient(145deg,#fff,#f1f7ff)}
+    .manager-icon{min-width:82px;height:82px;border-radius:24px;background:linear-gradient(135deg,var(--navy),var(--blue));display:grid;place-items:center;color:#fff;font-size:37px}
+    .manager h3{font-size:20px;color:var(--navy)}
+    .manager p{color:var(--muted);font-size:14px}
+    .contact{background:var(--navy);color:#fff;border-radius:34px;padding:45px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .contact h2{font-size:30px;margin-bottom:10px}
+    .contact p{color:#cbd8e8}
+    .contact-list{display:grid;gap:13px}
+    .contact-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:14px 18px;border-radius:14px}
+    .contact-item b{color:#fff}.contact-item span{color:#cbd8e8}
+    footer{padding:28px 0;background:#07172b;color:#9fb0c6;text-align:center;font-size:13px}
+    footer strong{color:#fff}
+    .mobile-menu{display:none}
+    @media(max-width:900px){
+      nav{display:none}.mobile-menu{display:inline-flex}
+      .hero-grid,.about-wrap,.contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .hero{padding-top:60px}
+    }
+    @media(max-width:520px){
+      .nav{height:68px}.brand div:last-child{font-size:13px}
+      .brand small{font-size:9px}
+      .nav>.btn{display:none}
+      h1{font-size:35px}.hero p{font-size:16px}
+      .services{grid-template-columns:1fr}
+      section{padding:60px 0}
+      .contact{padding:30px 22px}
+      .manager{align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="دفتر خدمات کامپیوتری فدک">
+      <div class="logo">ف</div>
+      <div>دفتر خدمات کامپیوتری فدک<small>خدمات اینترنتی، اداری و آموزشی</small></div>
+    </a>
+    <nav>
+      <a href="#home">خانه</a>
+      <a href="#services">خدمات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+    </nav>
+    <a class="btn" href="tel:09176784627">تماس با ما</a>
+    <a class="btn mobile-menu" href="#contact">منو</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">ارائه خدمات با سرعت و دقت</span>
+        <h1>دفتر خدمات کامپیوتری فدک</h1>
+        <p>انجام خدمات اینترنتی و غیرحضوری، اداری و آموزشی با دقت و پشتیبانی مناسب.</p>
+        <div class="actions">
+          <a class="btn" href="#services">مشاهده خدمات</a>
+          <a class="btn outline" href="tel:09176784627">📞 تماس مستقیم</a>
+        </div>
+        <div class="phone">شماره تماس: <span>09176784627</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="big-icon">💻</div>
+        <h2>خدمات کامپیوتری فدک</h2>
+        <p>برای انجام امور اینترنتی، اداری و آموزشی، با ما در تماس باشید.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>خدمات ما</h2>
+        <p>مجموعه‌ای از خدمات پرکاربرد برای انجام سریع‌تر امور شما</p>
+      </div>
+      <div class="services">
+        <article class="card"><div class="icon">💻</div><h3>ثبت‌نام‌های اینترنتی</h3><p>انجام ثبت‌نام‌ها و امور اینترنتی با دقت.</p></article>
+        <article class="card"><div class="icon">🛡️</div><h3>خدمات بیمه</h3><p>ارائه خدمات و امور مرتبط با بیمه.</p></article>
+        <article class="card"><div class="icon">🎓</div><h3>دانشگاه و مقالات</h3><p>خدمات دانشگاهی، تایپ و امور مرتبط با مقالات.</p></article>
+        <article class="card"><div class="icon">🏫</div><h3>خدمات مدرسه</h3><p>انجام امور اینترنتی و خدمات موردنیاز مدارس.</p></article>
+        <article class="card"><div class="icon">🚗</div><h3>تعویض پلاک</h3><p>خدمات اینترنتی مرتبط با فرایند تعویض پلاک.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-wrap">
+      <div class="about-box">
+        <h2>درباره دفتر</h2>
+        <p>دفتر خدمات کامپیوتری فدک با ارائه مجموعه‌ای از خدمات اینترنتی، اداری و آموزشی، آماده خدمت‌رسانی به شماست.</p>
+      </div>
+      <div class="manager">
+        <div class="manager-icon">👨‍💼</div>
+        <div>
+          <h3>محمدباقر آزادیان</h3>
+          <p>مدیرمسئول دفتر خدمات کامپیوتری فدک</p>
+          <p>شماره تماس: <bdi>09176784627</bdi></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="contact-grid">
+          <div>
+            <h2>با ما در تماس باشید</h2>
+            <p>برای دریافت اطلاعات بیشتر درباره خدمات دفتر، با شماره زیر تماس بگیرید.</p>
+            <br>
+            <a class="btn" href="tel:09176784627">📞 تماس با دفتر</a>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item"><b>مدیرمسئول:</b> <span>محمدباقر آزادیان</span></div>
+            <div class="contact-item"><b>شماره تماس:</b> <span dir="ltr">09176784627</span></div>
+            <div class="contact-item"><b>وب‌سایت:</b> <span>fadakoffice.com</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 <strong>دفتر خدمات کامپیوتری فدک</strong> — تمامی حقوق محفوظ است.
+  </div>
+</footer>
+</body>
+</html>
