@@ -390,9 +390,8 @@ footer span { color: #fff; font-weight: 700; }
 <script>
 
 const subMenus = [
-
     [
-        "ثبت‌نام‌های اینترنتی",
+        "ثبت‌نام اینترنتی",
         "نوبت‌دهی اینترنتی",
         "استعلام و پیگیری",
         "پرداخت اینترنتی"
@@ -476,15 +475,25 @@ const subMenus = [
         "طرح خودروهای فرسوده",
         "پیگیری ثبت‌نام"
     ]
-
 ];
 
 
-document.querySelectorAll('.service').forEach(function(card, index) {
+const cards = document.querySelectorAll('.service');
+
+
+cards.forEach(function(card, index) {
 
     const menu = document.createElement('div');
 
     menu.className = 'sub-services';
+
+    menu.style.display = 'none';
+    menu.style.marginTop = '18px';
+    menu.style.paddingTop = '15px';
+    menu.style.borderTop = '1px solid #ddd';
+    menu.style.flexDirection = 'column';
+    menu.style.gap = '8px';
+
 
     if (subMenus[index]) {
 
@@ -492,9 +501,13 @@ document.querySelectorAll('.service').forEach(function(card, index) {
 
             const link = document.createElement('a');
 
-            link.href = "#";
-
+            link.href = '#';
             link.textContent = item;
+
+            link.style.display = 'block';
+            link.style.padding = '9px 12px';
+            link.style.borderRadius = '12px';
+            link.style.textDecoration = 'none';
 
             menu.appendChild(link);
 
@@ -502,21 +515,35 @@ document.querySelectorAll('.service').forEach(function(card, index) {
 
     }
 
+
     card.appendChild(menu);
+
+
+    card.style.cursor = 'pointer';
 
 
     card.addEventListener('click', function(event) {
 
         if (event.target.closest('.sub-services a')) {
+            event.preventDefault();
             return;
         }
 
-        this.classList.toggle('open');
+
+        if (menu.style.display === 'none') {
+
+            menu.style.display = 'flex';
+
+        } else {
+
+            menu.style.display = 'none';
+
+        }
 
     });
 
 });
 
-      </script>
+</script>
 </body>
 </html>
