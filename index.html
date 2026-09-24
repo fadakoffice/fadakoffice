@@ -132,6 +132,37 @@ section { padding: 76px 0; }
 }
 .service h3 { font-size: 18px; margin-bottom: 6px; }
 .service p { color: var(--muted); font-size: 13px; }
+  .sub-services {
+  display: none;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  gap: 8px;
+  flex-direction: column;
+}
+
+.internet-service.open .sub-services {
+  display: flex;
+}
+
+.internet-service {
+  cursor: pointer;
+}
+
+.sub-services a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sub-services a:hover {
+  background: var(--blue);
+  color: #fff;
+} 
 .about { background: var(--surface); border-block: 1px solid var(--line); }
 .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 50px; }
 .about-visual {
