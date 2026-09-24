@@ -387,15 +387,136 @@ footer span { color: #fff; font-weight: 700; }
 <footer>
   © ۱۴۰۵ <span>دفتر خدمات کامپیوتری فدک</span> — مدیرمسئول: محمدباقر آزادیان
 </footer>
-  <script>
-const internetService =
-document.querySelector('.internet-service');
+<script>
 
-if (internetService) {
-    internetService.addEventListener('click', function () {
+const subMenus = [
+
+    [
+        "ثبت‌نام‌های اینترنتی",
+        "نوبت‌دهی اینترنتی",
+        "استعلام و پیگیری",
+        "پرداخت اینترنتی"
+    ],
+
+    [
+        "استعلام بیمه",
+        "سوابق بیمه",
+        "پرداخت بیمه",
+        "خدمات تأمین اجتماعی"
+    ],
+
+    [
+        "انتخاب واحد",
+        "ثبت‌نام دانشگاه",
+        "پرداخت شهریه",
+        "دریافت کارت دانشجویی",
+        "امور فارغ‌التحصیلی",
+        "ثبت و پیگیری مقالات"
+    ],
+
+    [
+        "ثبت‌نام مدرسه",
+        "ثبت‌نام آزمون",
+        "دریافت کارنامه",
+        "هدایت تحصیلی"
+    ],
+
+    [
+        "نوبت‌دهی تعویض پلاک",
+        "پیگیری نوبت",
+        "استعلام وضعیت",
+        "خدمات نقل و انتقال خودرو"
+    ],
+
+    [
+        "تایپ و پرینت",
+        "اسکن مدارک",
+        "ثبت‌نام اینترنتی",
+        "سایر خدمات کامپیوتری"
+    ],
+
+    [
+        "ثبت اطلاعات ملک",
+        "استعلام املاک",
+        "ثبت قرارداد",
+        "خدمات سامانه املاک"
+    ],
+
+    [
+        "نوبت‌دهی قضایی",
+        "ثبت دادخواست",
+        "پیگیری پرونده",
+        "خدمات ثنا"
+    ],
+
+    [
+        "ثبت‌نام سایپا",
+        "فروش فوق‌العاده",
+        "پیگیری ثبت‌نام",
+        "استعلام وضعیت"
+    ],
+
+    [
+        "ثبت‌نام ایران خودرو",
+        "فروش خودرو",
+        "پیگیری ثبت‌نام",
+        "استعلام وضعیت"
+    ],
+
+    [
+        "ثبت‌نام بهمن موتور",
+        "فروش خودرو",
+        "پیگیری ثبت‌نام",
+        "استعلام وضعیت"
+    ],
+
+    [
+        "طرح حمایت از خانواده",
+        "ثبت‌نام مادران",
+        "طرح خودروهای فرسوده",
+        "پیگیری ثبت‌نام"
+    ]
+
+];
+
+
+document.querySelectorAll('.service').forEach(function(card, index) {
+
+    const menu = document.createElement('div');
+
+    menu.className = 'sub-services';
+
+    if (subMenus[index]) {
+
+        subMenus[index].forEach(function(item) {
+
+            const link = document.createElement('a');
+
+            link.href = "#";
+
+            link.textContent = item;
+
+            menu.appendChild(link);
+
+        });
+
+    }
+
+    card.appendChild(menu);
+
+
+    card.addEventListener('click', function(event) {
+
+        if (event.target.closest('.sub-services a')) {
+            return;
+        }
+
         this.classList.toggle('open');
+
     });
-}
-</script>
+
+});
+
+      </script>
 </body>
 </html>
