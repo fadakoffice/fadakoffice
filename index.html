@@ -207,8 +207,10 @@ section { padding: 76px 0; }
 .detail-card span, .detail-card a { color: var(--muted); font-size: 14px; }
 footer { background: #061426; color: #c5d3e5; text-align: center; padding: 25px 20px; font-size: 12px; }
 footer span { color: #fff; font-weight: 700; }
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal {
+    opacity: 1;
+    transform: none;
+}
 :focus-visible { outline: 3px solid color-mix(in srgb, var(--blue) 55%, transparent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
