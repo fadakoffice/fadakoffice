@@ -385,59 +385,14 @@ footer span { color: #fff; font-weight: 700; }
 <footer>
   © ۱۴۰۵ <span>دفتر خدمات کامپیوتری فدک</span> — مدیرمسئول: محمدباقر آزادیان
 </footer>
+const internetService =
+document.querySelector('.internet-service');
 
+if (internetService) {
+    internetService.addEventListener('click', function () {
+        this.classList.toggle('open');
+    });
+}
 <script>
-(() => {
-  const root = document.documentElement;
-  const themeButton = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const menuButton = document.getElementById('menu-toggle');
-  const menu = document.getElementById('site-menu');
-
-  // Start with the system preference; the visitor can toggle the theme anytime.
-  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  root.dataset.theme = systemDark ? 'dark' : 'light';
-  const updateThemeIcon = () => {
-    const dark = root.dataset.theme === 'dark';
-    themeIcon.textContent = dark ? '☀️' : '🌙';
-    themeButton.setAttribute('aria-label', dark ? 'فعال‌کردن حالت روشن' : 'فعال‌کردن حالت تاریک');
-    themeButton.title = dark ? 'حالت روشن' : 'حالت تاریک';
-  };
-  updateThemeIcon();
-  themeButton.addEventListener('click', () => {
-    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    updateThemeIcon();
-  });
-
-  menuButton.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', String(isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? 'بستن منو' : 'باز کردن منو');
-    menuButton.querySelector('span').textContent = isOpen ? '✕' : '☰';
-  });
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    menu.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'باز کردن منو');
-    menuButton.querySelector('span').textContent = '☰';
-  }));
-
-  // Reveal elements as they enter the viewport, with a reduced-motion fallback.
-  const revealItems = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealItems.forEach(item => observer.observe(item));
-  } else {
-    revealItems.forEach(item => item.classList.add('visible'));
-  }
-})();
-</script>
 </body>
 </html>
