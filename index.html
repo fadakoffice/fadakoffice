@@ -6,7 +6,119 @@
 <meta name="description" content="دفتر خدمات کامپیوتری فدک در زاهدشهر؛ خدمات اینترنتی، بیمه، دانشگاه، مدرسه، تعویض پلاک و ثبت‌نام خودرو.">
 <meta name="theme-color" content="#0b1f3a">
 <title>دفتر خدمات کامپیوتری فدک | زاهدشهر</title>
-<style>
+<style>/* پنل زیرمجموعه خدمات */
+.service-panel-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(11, 31, 58, 0.55);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.service-panel-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-panel {
+    width: min(700px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.22);
+    direction: rtl;
+    animation: servicePanelIn .25s ease;
+}
+
+@keyframes servicePanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.service-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.service-panel-title {
+    margin: 0;
+    color: #0b1f3a;
+    font-size: 24px;
+}
+
+.service-panel-close {
+    border: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #edf4ff;
+    color: #0b1f3a;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sub-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.sub-service-item {
+    border: 1px solid #e1e8f2;
+    background: #f7faff;
+    border-radius: 16px;
+    padding: 17px;
+    color: #17243a;
+    font-family: inherit;
+    font-size: 15px;
+    text-align: right;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.sub-service-item:hover {
+    transform: translateY(-2px);
+    background: #edf5ff;
+    border-color: #1677ff;
+}
+
+.service {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .service-panel-overlay {
+        padding: 12px;
+    }
+
+    .service-panel {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .sub-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-panel-title {
+        font-size: 20px;
+    }
+}
 :root {
   color-scheme: light;
   --bg: #f5f8fc;
@@ -356,6 +468,233 @@ footer span { color: #fff; font-weight: 700; }
 </footer>
 
 <script>
+const serviceSubmenus = {
+
+    "ثبت‌نام‌های اینترنتی": [
+        "ثبت‌نام ایران خودرو",
+        "ثبت‌نام سایپا",
+        "ثبت‌نام مدارس",
+        "ثبت‌نام دانشگاه",
+        "ثبت‌نام آزمون‌ها",
+        "ثبت‌نام وام",
+        "سایر ثبت‌نام‌های اینترنتی"
+    ],
+
+    "خدمات بیمه": [
+        "بیمه تأمین اجتماعی",
+        "بیمه عمر",
+        "سوابق بیمه",
+        "خدمات غیرحضوری بیمه"
+    ],
+
+    "خدمات دانشگاه و مقالات": [
+        "ثبت‌نام دانشگاه",
+        "انتخاب واحد",
+        "پرداخت شهریه",
+        "انجام مقاله",
+        "انجام پروژه",
+        "ویرایش مقاله",
+        "تنظیم فایل دانشگاهی"
+    ],
+
+    "خدمات مدرسه": [
+        "ثبت‌نام مدرسه",
+        "ثبت‌نام دانش‌آموز",
+        "دریافت کارنامه",
+        "امور دانش‌آموزی",
+        "ثبت‌نام آزمون‌ها"
+    ],
+
+    "خدمات تعویض پلاک": [
+        "دریافت نوبت تعویض پلاک",
+        "پیگیری نوبت",
+        "خدمات تعویض پلاک"
+    ],
+
+    "سایر خدمات کامپیوتری": [
+        "تایپ و ویرایش",
+        "پرینت و اسکن",
+        "تبدیل فایل",
+        "خدمات اینترنتی",
+        "خدمات کامپیوتری"
+    ],
+
+    "سامانه املاک": [
+        "ثبت‌نام سامانه املاک",
+        "ثبت اطلاعات ملک",
+        "استعلام",
+        "پیگیری درخواست"
+    ],
+
+    "خدمات قضایی": [
+        "دریافت ابلاغیه",
+        "نوبت‌دهی قضایی",
+        "خدمات قضایی",
+        "پیگیری درخواست"
+    ],
+
+    "ثبت‌نام سایپا": [
+        "ثبت‌نام محصولات سایپا",
+        "فروش فوق‌العاده",
+        "پیش‌فروش",
+        "پیگیری ثبت‌نام"
+    ],
+
+    "ثبت‌نام ایران خودرو": [
+        "ثبت‌نام محصولات ایران خودرو",
+        "فروش فوق‌العاده",
+        "پیش‌فروش",
+        "پیگیری ثبت‌نام"
+    ],
+
+    "ثبت‌نام بهمن موتور": [
+        "ثبت‌نام محصولات بهمن موتور",
+        "طرح فروش",
+        "پیش‌فروش",
+        "پیگیری ثبت‌نام"
+    ],
+
+    "طرح مادران و خودروهای فرسوده": [
+        "طرح مادران",
+        "طرح جوانی جمعیت",
+        "خودروهای فرسوده",
+        "پیگیری درخواست"
+    ]
+};
+
+
+/* ساخت پنل به صورت خودکار */
+const overlay = document.createElement("div");
+overlay.className = "service-panel-overlay";
+overlay.id = "servicePanelOverlay";
+
+overlay.innerHTML = `
+    <div class="service-panel">
+
+        <div class="service-panel-header">
+            <h2 class="service-panel-title" id="servicePanelTitle">
+                خدمات
+            </h2>
+
+            <button
+                class="service-panel-close"
+                type="button"
+                id="servicePanelClose">
+                ×
+            </button>
+        </div>
+
+        <div
+            class="sub-services-grid"
+            id="subServicesGrid">
+        </div>
+
+    </div>
+`;
+
+document.body.appendChild(overlay);
+
+
+/* باز کردن پنل */
+function openServicePanel(title) {
+
+    const titleElement =
+        document.getElementById("servicePanelTitle");
+
+    const grid =
+        document.getElementById("subServicesGrid");
+
+    titleElement.textContent = title;
+
+    const items =
+        serviceSubmenus[title] || [
+            "اطلاعات بیشتر",
+            "درخواست این خدمت",
+            "تماس با دفتر فدک"
+        ];
+
+    grid.innerHTML = "";
+
+    items.forEach(function(item) {
+
+        const button =
+            document.createElement("button");
+
+        button.type = "button";
+        button.className = "sub-service-item";
+        button.textContent = item;
+
+        button.addEventListener("click", function() {
+
+            alert(
+                "خدمت انتخاب‌شده:\n" + item
+            );
+
+        });
+
+        grid.appendChild(button);
+    });
+
+    overlay.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* بستن پنل */
+function closeServicePanel() {
+
+    overlay.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+/* کلیک روی دکمه × */
+document
+    .getElementById("servicePanelClose")
+    .addEventListener("click", closeServicePanel);
+
+
+/* کلیک بیرون پنل */
+overlay.addEventListener("click", function(event) {
+
+    if (event.target === overlay) {
+        closeServicePanel();
+    }
+
+});
+
+
+/* دکمه Esc */
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeServicePanel();
+    }
+
+});
+
+
+/* فعال کردن کارت‌های خدمات */
+document.querySelectorAll(".service").forEach(function(card) {
+
+    card.addEventListener("click", function() {
+
+        const titleElement =
+            card.querySelector("h3");
+
+        if (!titleElement) return;
+
+        const title =
+            titleElement.textContent.trim();
+
+        openServicePanel(title);
+
+    });
+
+});
+</script>
 (() => {
   const root = document.documentElement;
   const themeButton = document.getElementById('theme-toggle');
